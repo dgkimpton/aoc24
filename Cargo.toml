@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+default-members = ["day5"]
+
+members = ["day3", "day4", "day5"]
+
+[workspace.dependencies]
+bencher = "0.1"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1

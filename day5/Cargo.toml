@@ -1,0 +1,21 @@
+[package]
+name = "day5"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[dev-dependencies]
+bencher.workspace = true
+
+[lib]
+name = "day5"
+path = "src/lib.rs"
+
+[[bin]]
+name = "day5"
+path = "src/main.rs"
+
+[[bench]]
+name = "speed"
+harness = false
