@@ -70,22 +70,16 @@ fn could_be_true(calc: &Input, partial_result: i64, index: i32, part: u8) -> boo
         return false;
     }
 
-    let divided = partial_result as f64 / token.value as f64;
-    let could_be_div = divided.fract() < 1e-10;
+    let mut result = (partial_result % token.value == 0
+        && could_be_true(calc, partial_result / token.value, index - 1, part))
+        || could_be_true(calc, partial_result - token.value, index - 1, part);
 
-    let stripped = (partial_result as f64 - token.value as f64) / token.offset as f64;
-    let could_be_strip = stripped >= 0.0 && stripped.fract() < 1e-10;
-
-    let mut result = false;
-
-    if could_be_div {
-        result = result || could_be_true(calc, divided.trunc() as i64, index - 1, part);
-    }
-
-    result = result || could_be_true(calc, partial_result - token.value, index - 1, part);
-
-    if part == 2 && could_be_strip {
-        result = result || could_be_true(calc, stripped.trunc() as i64, index - 1, part);
+    if part == 2 {
+        let stripped_numerator = partial_result - token.value;
+        if stripped_numerator > 0 && stripped_numerator % token.offset == 0 {
+            result =
+                result || could_be_true(calc, stripped_numerator / token.offset, index - 1, part);
+        }
     }
 
     result
