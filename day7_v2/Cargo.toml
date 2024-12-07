@@ -1,5 +1,5 @@
 [package]
-name = "day7"
+name = "day7_v2"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,11 +9,11 @@ edition = "2021"
 bencher.workspace = true
 
 [lib]
-name = "day7"
+name = "day7_v2"
 path = "src/lib.rs"
 
 [[bin]]
-name = "day7"
+name = "day7_v2"
 path = "src/main.rs"
 
 [[bench]]
