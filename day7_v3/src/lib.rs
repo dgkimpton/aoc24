@@ -65,7 +65,7 @@ fn could_be_true(calc: &Input, partial_result: i64, index: i32, part: u8) -> boo
 
     let token = calc.args[index as usize];
 
-    if partial_resuzlt < 0 {
+    if partial_result < 0 {
         // never have negative answers
         return false;
     }
