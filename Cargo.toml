@@ -1,8 +1,18 @@
 [workspace]
 resolver = "2"
-default-members = ["day8"]
+default-members = ["day11"]
 
-members = ["day3", "day4", "day5", "day6", "day7", "day7_v2", "day7_v3", "day8"]
+members = [
+	"day3",
+	"day4",
+	"day5",
+	"day6",
+	"day7",
+	"day7_v2",
+	"day7_v3",
+	"day8",
+	"day11",
+]
 
 [workspace.dependencies]
 bencher = "0.1"
