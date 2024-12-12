@@ -3,7 +3,7 @@ use std::collections::HashMap;
 pub fn run_on_string(input: &str, part: u8) -> Result<i64, String> {
     let blink_count = if part == 1 { 25 } else { 75 };
 
-    let mut cache = HashMap::<(Stone, Iterations), Count>::new();
+    let mut cache = HashMap::new();
 
     input
         .split(' ')
