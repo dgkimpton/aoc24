@@ -10,7 +10,7 @@ fn benchmark_part(part_number: u8, b: &mut Bencher) {
     let config = read_test_io(part_number, Mode::Real).expect("benchmark configuration");
     let input = load_full_input_as_string(&config.filename).expect("an input");
 
-    b.iter(|| std::hint::black_box(lib::run_on_string(&input, config.part, true).unwrap()))
+    b.iter(|| std::hint::black_box(lib::run_on_string(&input, config.part).unwrap()))
 }
 
 fn bench1(b: &mut Bencher) {

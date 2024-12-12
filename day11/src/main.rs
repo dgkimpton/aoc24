@@ -43,11 +43,16 @@ fn main() {
 fn generate_result(part: &Part) -> AResult<i64> {
     use std::time::Instant;
     let now = Instant::now();
-    let result = lib::run(&part.filename, part.part)
+    let result = run(&part.filename, part.part)
         .map_err(|e| format!("Failed for part {} <{}> :: {}", part.part, part.filename, e))?;
     let elapsed = now.elapsed();
     println!("Elapsed: {:.2?}", elapsed);
     Ok(result)
+}
+
+fn run(filename: &str, part: u8) -> Result<i64, String> {
+    let input = files::load_full_input_as_string(filename)?;
+    lib::run_on_string(&input, part)
 }
 
 #[cfg(test)]
