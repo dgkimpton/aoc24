@@ -1,0 +1,22 @@
+[package]
+name = "day16"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+priority-queue = "2.1"
+
+[dev-dependencies]
+bencher.workspace = true
+
+[lib]
+name = "day16"
+path = "src/lib.rs"
+
+[[bin]]
+name = "day16"
+path = "src/main.rs"
+
+[[bench]]
+name = "speed"
+harness = false
